@@ -1,120 +1,150 @@
-# Welcome to your Lovable project
+🌍 Climate–Economy Insight Assistant
 
-## Project info
+🏆 Built for the Kaggle Competition: BigQuery AI – Building the Future of Data
 
-**URL**: https://lovable.dev/projects/5bfefef0-0bc8-43f2-8261-d5c5b3ef1980
+📖 Overview
 
-## How can I edit this code?
+The Climate–Economy Insight Assistant is a BigQuery AI-powered web application that transforms raw climate and economic data into actionable insights, forecasts, and visualizations.
 
-There are several ways of editing your application.
+This project demonstrates how BigQuery’s Generative AI, Vector Search, and Multimodal capabilities can go beyond traditional analytics to address real-world business and policy challenges.
 
-**Use Lovable**
+Judges will not just see a tool, but a working system that:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/5bfefef0-0bc8-43f2-8261-d5c5b3ef1980) and start prompting.
+Delivers real-time, region-specific insights
 
-Changes made via Lovable will be committed automatically to this repo.
+Generates AI-powered forecasts using BigQuery TimesFM
 
-**Use your preferred IDE**
+Performs semantic vector search for global comparisons
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Analyzes satellite images with multimodal AI
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Produces executive-ready reports with traceable sources
 
-Follow these steps:
+✨ Key Features
+🧠 Executive Insights
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+AI-generated summaries, justifications, impacts, and recommendations
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Adapt dynamically to region and indicator selected
 
-# Step 3: Install the necessary dependencies.
-npm i
+📊 Forecasting
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+10-year forecasts generated with BigQuery AI.FORECAST
+
+Results visualized in charts + raw data tables
+
+Region and time-range specific
+
+🖼️ Image Analysis (Multimodal)
+
+Fetches real satellite/climate images for the selected region
+
+AI generates context-aware insights based on visual + numeric data
+
+🔍 Vector Search
+
+Semantic similarity search using BigQuery VECTOR_SEARCH
+
+Finds countries with similar climate/economic patterns
+
+Restricted by region and indicator
+
+📑 Data Sources
+
+Displays real-time sources (World Bank, NOAA, IEA, UNDP, NASA, etc.)
+
+Ensures transparency and credibility
+
+📥 Report Export
+
+Generate professional PDF reports
+
+Includes insights, forecasts, charts, and data sources
+
+🛠️ Tech Stack
+
+Frontend: React (Next.js), TailwindCSS, Chart.js
+
+Backend: Node.js/Express (reference-server.js)
+
+AI/ML: Google BigQuery AI
+
+AI.FORECAST, AI.GENERATE_TABLE, ML.GENERATE_EMBEDDING, VECTOR_SEARCH
+
+Multimodal: BigQuery Object Tables + Image APIs (NASA EarthData, NOAA, Google Earth Engine)
+
+PDF Export: jsPDF + html2canvas / Puppeteer (modular export)
+
+⚙️ Setup
+1. Clone Repository
+git clone https://github.com/your-username/climate-economy-insight.git
+cd climate-economy-insight
+
+2. Install Dependencies
+npm install
+
+3. Configure Environment
+
+Create .env file:
+
+BIGQUERY_PROJECT_ID=your_project_id
+BIGQUERY_DATASET=your_dataset
+BIGQUERY_KEYFILE=path_to_your_service_account.json
+NASA_API_KEY=your_api_key
+
+4. Run Development Server
 npm run dev
-```
 
-**Edit a file directly in GitHub**
+📂 Project Structure
+├── /src
+│   ├── App.jsx               # Main React frontend
+│   ├── components/           # UI components
+│   ├── charts/               # Chart.js visualizations
+│   └── services/             # API services
+├── /server
+│   └── reference-server.js   # Express backend (BigQuery + APIs)
+├── package.json
+├── README.md
+└── .env.example
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+🚀 Roadmap
 
-**Use GitHub Codespaces**
+ Executive insights card
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+ Forecast visualization
 
-## What technologies are used for this project?
+ Raw data table
 
-This project is built with:
+ Vector search
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+ Image analysis (prototype)
 
-## Local development with BigQuery AI backend
+ Integrate real-time BigQuery AI data
 
-This app calls a local Node backend for secure BigQuery AI execution.
+ Add region-specific satellite images
 
-### Prerequisites
+ Implement data sources panel
 
-- Node 18+
-- Google Cloud project with BigQuery enabled
-- Service account with BigQuery permissions
-- Service account JSON available locally
+ Finalize PDF export (modular + stable)
 
-### Environment
+ Polish UI/UX for competition showcase
 
-Set the following environment variables for the backend:
+🏆 Competition Context
 
-```
-GOOGLE_APPLICATION_CREDENTIALS=/absolute/path/to/service-account.json
-PROJECT_ID=<your-gcp-project-id>
-# optional
-BQ_MODEL=<project.dataset.model_name> # for AI.GENERATE or AI.GENERATE_TABLE
-DATASET=<project.dataset>             # for vector demo
-EMBEDDING_MODEL=textembedding-gecko   # default
-PORT=8787                             # default
-```
+This project is built for the Kaggle Competition – BigQuery AI: Building the Future of Data.
+Our focus is not just to participate, but to set a benchmark by delivering a solution that is:
 
-### Start backend
+Innovative → AI-driven, multimodal, cross-domain
 
-```
-cd climate-insight-fusion-main
-npm i
-node reference-server.js
-```
+Practical → applicable for governments, NGOs, businesses
 
-### Start frontend with proxy
+Transparent → traceable SQL + data sources
 
-```
-npm run dev
-```
+Polished → competition-grade UI/UX
 
-The frontend is configured to proxy `/api/*` to `http://localhost:8787` during development.
+🤝 AI + Human Collaboration
 
-### Notes
+This project is co-created by human developers and AI assistants (Gemini, ChatGPT, Cursor AI, Lovable AI).
+It tells the story of how AI and humans can work together to build meaningful, future-ready solutions.
 
-- The UI will fetch forecasts and summaries from `/api/bigquery`.
-- To switch from demo to live, in the UI select mode "bigquery" in the control panel.
-- If the backend returns errors, the app falls back to demo data to remain functional.
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/5bfefef0-0bc8-43f2-8261-d5c5b3ef1980) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+💡 “AI doesn’t replace humans — it augments us. Together, we build the future of data.”
